@@ -1,18 +1,20 @@
 import babel from 'rollup-plugin-babel';
 import run from 'rollup-plugin-run';
+import html from 'rollup-plugin-html';
+import resolve from 'rollup-plugin-node-resolve';
 
 let pkg = require('./package.json');
 let external = Object.keys(pkg.dependencies);
 
 let plugins = [
   babel(),
+  html(),
+  resolve(),
 ];
 
 if (process.env.NODE_ENV === 'development') {
   plugins.push(run())
 }
-
-console.log(process.env.NODE_ENV);
 
 const config = {
   input: './src/index.js',
@@ -21,8 +23,8 @@ const config = {
     format: 'cjs',
     sourceMap: true
   },
-  plugins
+  plugins,
+  external
 };
 
-console.log(config);
 export default config;
