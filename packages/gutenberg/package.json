@@ -5,7 +5,7 @@
   "author": "kmeinhardt <kevin.meinhardt@smava.de>",
   "homepage": "https://github.com/KevinMind/micro-poc#readme",
   "license": "ISC",
-  "main": "src/index.js",
+  "main": "build/index.js",
   "directories": {
     "lib": "lib",
     "test": "__tests__"
@@ -18,12 +18,20 @@
     "url": "git+https://github.com/KevinMind/micro-poc.git"
   },
   "scripts": {
-    "test": "echo \"Error: run tests from root\" && exit 1"
+    "build": "rollup -c --environment NODEV_ENV:production",
+    "start": "rollup -c -w --environment NODE_ENV:development"
   },
   "bugs": {
     "url": "https://github.com/KevinMind/micro-poc/issues"
   },
   "dependencies": {
     "express": "^4.17.1"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.4.5",
+    "rollup": "^1.14.4",
+    "rollup-plugin-babel": "^4.3.2",
+    "rollup-plugin-run": "^1.1.0",
+    "rollup-watch": "^4.3.1"
   }
 }
