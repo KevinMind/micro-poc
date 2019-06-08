@@ -1,7 +1,7 @@
 {
-  "name": "gutenberg",
+  "name": "apple",
   "version": "0.0.0",
-  "description": "renders microfrontends into template html files based on route level configurations",
+  "description": "its a frontend for rendering a single apple",
   "author": "kmeinhardt <kevin.meinhardt@smava.de>",
   "homepage": "https://github.com/KevinMind/micro-poc#readme",
   "license": "ISC",
@@ -24,19 +24,20 @@
   "bugs": {
     "url": "https://github.com/KevinMind/micro-poc/issues"
   },
-  "dependencies": {
-    "@babel/core": "^7.4.5",
-    "express": "^4.17.1",
-    "jsdom": "^15.1.1"
-  },
   "devDependencies": {
-    "@babel/core": "^7.4.5",
-    "@babel/plugin-syntax-dynamic-import": "^7.2.0",
+    "@babel/preset-react": "^7.0.0",
     "rollup": "^1.14.4",
     "rollup-plugin-babel": "^4.3.2",
-    "rollup-plugin-html": "^0.2.1",
+    "rollup-plugin-commonjs": "^10.0.0",
+    "rollup-plugin-generate-html-template": "^1.2.0",
+    "rollup-plugin-json": "^4.0.0",
     "rollup-plugin-node-resolve": "^5.0.1",
-    "rollup-plugin-run": "^1.1.0",
-    "rollup-watch": "^4.3.1"
+    "rollup-plugin-replace": "^2.2.0",
+    "rollup-plugin-serve": "^1.0.1"
+  },
+  "dependencies": {
+    "@babel/core": "^7.4.5",
+    "react": "^16.8.6",
+    "react-dom": "^16.8.6"
   }
 }
