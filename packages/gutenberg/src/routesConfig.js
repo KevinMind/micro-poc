@@ -15,12 +15,13 @@ export default {
       {
         id: 'apple',
         target: TEMPLATE_TARGETS.checkout,
-        content: '<div>this is a micro-frontend apple</div>'
+        baseUrl: 'http://localhost:8081',
+        ssr: true
       },
       {
         id: 'banana',
         target: TEMPLATE_TARGETS.product,
-        content: '<div>this is a micro-frontend banana',
+        content: 'Product',
       }
     ]
   }

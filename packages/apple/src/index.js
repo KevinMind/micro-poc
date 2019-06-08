@@ -1,26 +1,17 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import { get } from 'lodash';
 
-const ReactApple = () => {
-  return (
-    <div>
-      APPLE
-    </div>
-  );
+import ReactApple from './ReactApple';
+
+const render = App => {
+  const target = get(global, '__MF__.apple', 'root');
+  const el = document.getElementById(target);
+  ReactDOM.render(<App />, el);
 };
-
-const render = App => ReactDOM.render(React.createElement(App), document.getElementById('app'));
 
 render(ReactApple);
 
-// class Apple extends HTMLElement {
-//   connectedCallback() {
-//     const mountPoint = document.createElement('span');
-//     this.attachShadow({ mode: 'open' }).appendChild(mountPoint);
-//     ReactDOM.render(<ReactApple />, mountPoint);
-//   }
-// }
-//
-// customElements.define('custom-apple', ReactApple);
-//
-// export default Apple;
+if (module.hot) {
+  module.hot.accept();
+}

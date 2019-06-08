@@ -18,26 +18,49 @@
     "url": "git+https://github.com/KevinMind/micro-poc.git"
   },
   "scripts": {
-    "build": "rollup -c --environment NODEV_ENV:production",
-    "start": "rollup -c -w --environment NODE_ENV:development"
+    "start:client": "NODE_ENV=development webpack-dev-server --config ./webpack.config.js",
+    "build:client": "NODE_ENV=production webpack",
+    "build:server": "rollup -c --environment NODEV_ENV:production",
+    "start:server": "rollup -c -w --environment NODE_ENV:development",
+    "build": "npm-run-all build:client build:server",
+    "start": "npm-run-all --parallel start:client start:server"
   },
   "bugs": {
     "url": "https://github.com/KevinMind/micro-poc/issues"
   },
   "devDependencies": {
+    "@babel/preset-env": "^7.4.5",
     "@babel/preset-react": "^7.0.0",
+    "babel-loader": "^8.0.6",
+    "html-webpack-plugin": "^3.2.0",
     "rollup": "^1.14.4",
     "rollup-plugin-babel": "^4.3.2",
     "rollup-plugin-commonjs": "^10.0.0",
-    "rollup-plugin-generate-html-template": "^1.2.0",
-    "rollup-plugin-json": "^4.0.0",
     "rollup-plugin-node-resolve": "^5.0.1",
-    "rollup-plugin-replace": "^2.2.0",
-    "rollup-plugin-serve": "^1.0.1"
+    "rollup-plugin-run": "^1.1.0",
+    "webpack": "^4.33.0",
+    "webpack-cli": "^3.3.3",
+    "webpack-dev-server": "^3.7.1",
+    "webpack-manifest-plugin": "^2.0.4"
   },
   "dependencies": {
     "@babel/core": "^7.4.5",
+    "express": "^4.17.1",
+    "jsonfile": "^5.0.0",
+    "npm-run-all": "^4.1.5",
     "react": "^16.8.6",
     "react-dom": "^16.8.6"
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
   }
 }
