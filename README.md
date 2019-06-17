@@ -41,3 +41,10 @@ Each app has product domain focus, and can develop independently even using diff
 - do we use native apis
 - do we use redux?
 - how do we prevent naming collision, memory leaks, etc.
+
+### allow client applications to control their own SSR implementation
+-right now we simply call ReactDOM.renderToString
+-should be framework agnostic
+
+### include vanilla js client
+- why not?? :)
