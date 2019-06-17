@@ -19,9 +19,10 @@ export default {
         ssr: true
       },
       {
-        id: 'banana',
+        id: 'orange',
         target: TEMPLATE_TARGETS.product,
-        content: 'Product',
+        baseUrl: 'http://localhost:6061',
+        ssr: false
       }
     ]
   }

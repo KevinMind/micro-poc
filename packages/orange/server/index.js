@@ -5,7 +5,7 @@ import jsonfile from 'jsonfile';
 
 import ReactDOMServer from 'react-dom/server';
 
-import ReactApple from '../src/ReactApple';
+import ReactOrange from '../src/ReactOrange';
 
 const manifestPath = path.resolve(__dirname, '../client/manifest.json');
 
@@ -16,10 +16,10 @@ express()
   .use('', (req, res) => {
     const { ssr } = req.query;
 
-    console.log('serving apples', req.query);
+    console.log('serving oranges', req.query);
 
     const content = ssr === 'true'
-      ? ReactDOMServer.renderToString(<ReactApple />)
+      ? ReactDOMServer.renderToString(<ReactOrange />)
       : '';
 
     const manifest = jsonfile.readFileSync(manifestPath) || {};
@@ -29,10 +29,10 @@ express()
       manifest,
     })
   })
-  .listen(6061, (err) => {
+  .listen(8081, (err) => {
     if (err) {
-      console.warn('error starting apple', err);
+      console.warn('error starting orange', err);
     } else {
-      console.log('sering react apples hot off the press at port:', 6061);
+      console.log('sering react oranges hot off the press at port:', 8081);
     }
   });

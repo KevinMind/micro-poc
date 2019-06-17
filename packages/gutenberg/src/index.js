@@ -27,6 +27,7 @@ const getClientAssets = (dom, target, el) => ({ manifest, content }) => {
         link.type = 'text/css';
         link.media = 'all';
         link.href = url;
+        link.rel = 'stylesheet';
         return link;
       }
     );

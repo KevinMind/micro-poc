@@ -16,7 +16,7 @@ const plugins = [
   new webpack.HotModuleReplacementPlugin(),
   new ManifestPlugin({
     // in real example you would use PUBLIC_PATH + STATIC_PATH and let your http gateway handle proxy to right node.js server
-    publicPath: 'http://localhost:6061/static/'
+    publicPath: 'http://localhost:8081/static/'
   })
 ];
 
@@ -88,7 +88,7 @@ module.exports = {
     filename: 'index.js'
   },
   devServer: {
-    port: 6060,
+    port: 8080,
     contentBase: './build/client',
     hot: true
   }

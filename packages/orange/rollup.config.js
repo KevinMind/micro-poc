@@ -3,17 +3,12 @@ import run from 'rollup-plugin-run';
 import nodeResolve from 'rollup-plugin-node-resolve';
 import commonjs from 'rollup-plugin-commonjs';
 import scss from 'rollup-plugin-scss';
-import postcss from 'rollup-plugin-postcss';
-
 
 let pkg = require('./package.json');
 let external = Object.keys(pkg.dependencies);
 
 const plugins = [
   scss(),
-  postcss({
-    modules: true
-  }),
   commonjs({
     include: [
       'node_modules/**',
